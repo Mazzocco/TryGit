@@ -1,0 +1,18 @@
+<h1>Listing posts</h1>
+<button type="button" class="btn btn-default"><%= link_to 'New post', new_post_path %></button>
+
+<div>
+	<% @posts.each do |post| %>
+
+	<div class="panel panel-content">
+		<span class="glyphicon glyphicon-bookmark"></span><h3 class="panel-heading"><%= post.title %></h3>
+		<p class="panel-body"><%= post.text %></p>
+	</div>
+	<div class="btn-group">
+		<button type="button" class="btn btn-default"><%= link_to 'Show', post %></button>
+		<button type="button" class="btn btn-default"><%= link_to 'Edit', edit_post_path(post) %></button>
+		<button type="button" class="btn btn-default"><%= link_to 'Destroy', post_path(post),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></button>
+	</div>
+
+	<% end %>
